@@ -1,26 +1,46 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <section id="wrapper">
+    <NavComponent />
+    <HeroComponent />
+    <AboutComponent :mobile="this.mobile"/>
+    <ProductsComponent />
+    <FAQComponent />
+    <ContactComponent />
+  </section>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavComponent from './components/NavComponent.vue'
+import HeroComponent from './components/HeroComponent.vue'
+import AboutComponent from './components/AboutComponent.vue'
+import ProductsComponent from './components/ProductsComponent.vue'
+import FAQComponent from './components/FAQComponent.vue'
+import ContactComponent from './components/ContactComponent.vue'
 
 export default {
-  name: 'App',
+  name: 'DoddsFamilySmithing',
+
+  data() {
+    return {
+      mobile: false,
+    }
+  },
+
+  mounted() {
+    this.mobile = window.innerWidth < 812 ? true : false
+
+    window.addEventListener('resize', () => {
+      this.mobile = window.innerWidth < 812 ? true : false
+    })
+  },
+
   components: {
-    HelloWorld
+    NavComponent,
+    HeroComponent,
+    AboutComponent,
+    ProductsComponent,
+    FAQComponent,
+    ContactComponent,
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
