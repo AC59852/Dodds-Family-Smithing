@@ -465,4 +465,51 @@ img, video {
 .fade-leave-to {
   opacity: 0;
 }
+
 /* End of FAQ */
+
+/* Start of Contact */
+
+.contact__title {
+  margin-bottom: 52px;
+}
+
+.contact__form {
+  box-shadow: var(--content-shadow);
+  border-radius: 17px;
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 50px 0;
+}
+
+.contact__wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.contact__input {
+  width: 100%;
+  border: none;
+  border-bottom: solid 2px #959595;
+  font-family: var(--font-family-body);
+  font-size: 15px;
+  color: black;
+  padding: 8px 0;
+}
+
+.contact__input::placeholder {
+  opacity: 1;
+  color: black;
+  font-size: 15px !important;
+}
+
+.contact__input--message {
+  font-size: 14px;
+  resize: vertical;
+}
+
+/* End of Contact */

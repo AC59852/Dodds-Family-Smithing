@@ -12,7 +12,7 @@
         <input id="phone" class="contact__input contact__input--phone" aria-label="Phone Number" title="Phone Number" placeholder="Phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" type="tel" required>
       </div>
       <div class="contact__wrapper">
-        <textarea name="message" id="message" class="contact__input contact__input--message" cols="30" rows="10" aria-label="message" required></textarea>
+        <textarea name="message" id="message" class="contact__input contact__input--message" rows="1" aria-label="message" maxlength="275" required placeholder="Message"></textarea>
       </div>
       <button class="button">Send</button>
     </form>
