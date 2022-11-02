@@ -2,7 +2,7 @@
   <section id="about">
     <h2 class="about__title title--large">Locally Loved With Exceptional Service</h2>
     <div class="about__wrapper">
-      <img v-if="mobile" src="/about_img-1.jpg" class="about__img" alt="Image of man working at grinding table within forge room">
+      <img v-if="mobile" src="/about_img-2.jpg" class="about__img" alt="Image of man working at grinding table within forge room">
       <div v-else class="about__imgWrapper">
         <img class="about__img about__img--circle" :src="img.link" v-for="(img, index) in images" :key="index" :alt="img.alt">
       </div>

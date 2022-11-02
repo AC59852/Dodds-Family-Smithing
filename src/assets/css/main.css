@@ -1,6 +1,8 @@
 :root {
   --font-family-heading: 'League Spartan', sans-serif;
   --font-family-body: 'Poppins', sans-serif;
+  --img-shadow: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  --content-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);;
 }
 
 .no-scroll {
@@ -10,6 +12,49 @@
 img, video {
   width: 100%;
 }
+
+.title--large {
+  font-family: var(--font-family-heading);
+  font-weight: bold;
+  font-size: 44px;
+  text-align: center;
+  line-height: 130%;
+}
+
+.title--small {
+  font-family: var(--font-family-heading);
+  font-size: 36px;
+  text-align: center;
+}
+
+.title--underscore {
+  position: relative;
+  padding-bottom: 14px;
+}
+
+.title--underscore::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 2px;
+  background-color: #000;
+}
+
+.button {
+  width: 135px;
+  margin: 0 auto;
+  border-radius: 900000px;
+  background: transparent;
+  padding: 12px 0;
+  border: 1.5px solid black;
+  font-family: var(--font-family-body);
+  font-size: 15px;
+}
+
+/* Start of Header */
 
 .header__wrapper--hide {
   opacity: 0 !important;
@@ -118,6 +163,14 @@ img, video {
 }
 
 /* End of Header */
+
+.wrapper__content {
+  display: flex;
+  flex-direction: column;
+  gap: 180px;
+  width: 95%;
+  margin: 180px auto 36px;
+}
 
 /* Start of Hero */
 
@@ -248,3 +301,42 @@ img, video {
 }
 
 /* End of Hero */
+
+/* Start of About */
+
+.about__img {
+  width: 100%;
+  height: 266px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 11px;
+  filter: var(--img-shadow);
+  margin: 52px 0 34px;
+}
+
+.about__text {
+  box-shadow: var(--content-shadow);
+  border-radius: 17px;
+  padding: 13% 5%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.about__para {
+  font-family: var(--font-family-body);
+  font-size: 15px;
+  line-height: 135%;
+  letter-spacing: 0.5%;
+}
+
+.para--2 {
+  display: none;
+}
+
+.para--reveal {
+  display: block !important;
+}
+
+/* End of About */
