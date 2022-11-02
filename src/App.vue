@@ -3,7 +3,7 @@
     <NavComponent />
     <HeroComponent />
     <AboutComponent :mobile="this.mobile"/>
-    <ProductsComponent />
+    <ProductsComponent :mobile="this.mobile"/>
     <FAQComponent />
     <ContactComponent />
   </section>

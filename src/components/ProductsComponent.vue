@@ -1,7 +1,14 @@
 <template>
   <section id="products">
     <h2 class="products__title title--large title--underscore">Featured Items</h2>
-    <ul class="products__wrapper">
+    <ul class="products__wrapper" v-if="mobile">
+      <li class="products__item" v-for="(product, index) in products.slice(0,3)" :key="index">
+        <span class="project__expand">+</span>
+        <img :src="product.img" class="products__img" :alt="product.alt">
+        <h3 class="products__name">{{ product.name }}</h3>
+      </li>
+    </ul>
+    <ul class="products__wrapper" v-else>
       <li class="products__item" v-for="(product, index) in products" :key="index">
         <span class="project__expand">+</span>
         <img :src="product.img" class="products__img" :alt="product.alt">
@@ -13,6 +20,8 @@
 
 <script>
 export default {
+  props: ['mobile'],
+
   data() {
     return {
       products: [
