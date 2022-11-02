@@ -2,11 +2,14 @@
   <section id="faq">
     <h2 class="faq__title title--large title--underscore">FAQ</h2>
     <ul class="faq__list">
-      <li v-for="(question, index) in questions" :key="index" @click="loadAnswer(question, index)">
-        <h3 class="faq__question">{{ question.question }}</h3>
-        <p class="faq__answer" v-if="question.clicked">{{ question.answer }}</p>
-        <p v-else></p>
-        <img src="/chevron-down.svg" class="faq__expan" :alt="'Arrow down indicating to expand the question of' + question.question" >
+      <li v-for="(question, index) in questions" :key="index" @click="loadAnswer(question, index)" class="faq__item">
+        <div class="faq__question">
+          <h3>{{ question.question }}</h3>
+          <img src="/chevron-down.svg" class="faq__expand" :alt="'Arrow down indicating to expand the question of' + question.question" >
+        </div>
+        <transition name="fade">
+          <p class="faq__answer" v-if="question.clicked">{{ question.answer }}</p>
+        </transition>
       </li>
     </ul>
   </section>
@@ -59,6 +62,16 @@ export default {
   methods: {
     loadAnswer(question, index) {
       this.questions[index].clicked = !question.clicked
+
+      // flip the arrow up or down
+      const arrow = document.querySelectorAll('.faq__expand')[index]
+
+      if (question.clicked) {
+        arrow.style.transform = 'rotate(180deg)'
+      } else {
+        arrow.style.transform = 'rotate(0deg)'
+      }
+
     }
   }
 }

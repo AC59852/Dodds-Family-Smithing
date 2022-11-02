@@ -2,10 +2,12 @@
   <section id="wrapper">
     <NavComponent />
     <HeroComponent />
-    <AboutComponent :mobile="this.mobile"/>
-    <ProductsComponent />
-    <FAQComponent />
-    <ContactComponent />
+    <div class="wrapper__content">
+      <AboutComponent :mobile="this.mobile"/>
+      <ProductsComponent :mobile="this.mobile"/>
+      <FAQComponent />
+      <ContactComponent />
+    </div>
   </section>
 </template>
 
