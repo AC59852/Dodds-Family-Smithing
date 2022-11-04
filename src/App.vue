@@ -29,10 +29,10 @@ export default {
   },
 
   mounted() {
-    this.mobile = window.innerWidth < 812 ? true : false
+    this.mobile = window.innerWidth < 799 ? true : false
 
     window.addEventListener('resize', () => {
-      this.mobile = window.innerWidth < 812 ? true : false
+      this.mobile = window.innerWidth < 799 ? true : false
     })
   },
 
