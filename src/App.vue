@@ -31,10 +31,10 @@ export default {
   },
 
   mounted() {
-    this.mobile = window.innerWidth < 799 ? true : false
+    this.mobile = window.innerWidth < 1150 ? true : false
 
     window.addEventListener('resize', () => {
-      this.mobile = window.innerWidth < 799 ? true : false
+      this.mobile = window.innerWidth < 1150 ? true : false
     })
 
     if(localStorage.getItem("mode") === null ){
