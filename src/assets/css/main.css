@@ -2,12 +2,59 @@
   --font-family-heading: 'League Spartan', sans-serif;
   --font-family-body: 'Poppins', sans-serif;
   --img-shadow: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  --content-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);;
+  --content-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  --darkmode-bg: #161616;
+  --darkmode-nav-bg: rgb(22, 22, 22, 0.87);
+  --darkmode-cards-bg: #202020;
+  --darkmode-font: #FAFAFA;
+  --darkmode-underline: #959595;
 }
 
-html {
-  max-width: 440px;
-  margin: 0 auto;
+#darkmode {
+  background-color: var(--darkmode-bg);
+  color: var(--darkmode-font);
+}
+
+#darkmode h2::after, #darkmode h3::after {
+  background-color: var(--darkmode-font);
+}
+
+#darkmode .about__text, #darkmode .products__item, #darkmode .faq__list, #darkmode .contact__form {
+  background-color: var(--darkmode-cards-bg);
+}
+
+#darkmode .line {
+  background: var(--darkmode-font);
+}
+
+#darkmode .header__nav {
+  background-color: var(--darkmode-nav-bg);
+}
+
+#darkmode .header__link {
+  color: var(--darkmode-font);
+}
+
+#darkmode .header__link:hover {
+  border-bottom-color: var(--darkmode-font);
+}
+
+#darkmode .header__close {
+  color: rgb(202, 63, 63);
+}
+
+#darkmode .button {
+  color: var(--darkmode-font);
+  border-color: var(--darkmode-font);
+}
+
+#darkmode .products__expand {
+  background: var(--darkmode-bg);
+  color: var(--darkmode-font);
+}
+
+#darkmode .contact__input, #darkmode .contact__input::placeholder {
+  color: var(--darkmode-font);
 }
 
 .no-scroll {
@@ -66,6 +113,15 @@ img, video {
   opacity: 0 !important;
 }
 
+.header--top {
+  color: white !important;
+  background-color: transparent;
+}
+
+.header--top .line {
+  background: white !important;
+}
+
 .header__wrapper {
   position: fixed;
   width: 100%;
@@ -78,6 +134,7 @@ img, video {
   opacity: 1;
   z-index: 20;
   transition: opacity 0.3s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.575);
 }
 
 .header__title {
@@ -87,6 +144,15 @@ img, video {
   text-transform: uppercase;
   letter-spacing: 1.5%;
 }
+
+.header__toggles {
+  display: flex; 
+  gap: 20px;
+  font-family: var(--font-family-body);
+  font-size: 15px;
+}
+
+.header__toggles span { cursor: pointer; }
 
 .hero__navBtn {
   display: flex;
@@ -310,6 +376,12 @@ img, video {
 
 /* Start of About */
 
+#about {
+  width: 100%;
+  max-width: 1215px;
+  margin: 0 auto;
+}
+
 .about__img {
   width: 100%;
   height: 266px;
@@ -334,7 +406,7 @@ img, video {
   font-family: var(--font-family-body);
   font-size: 15px;
   line-height: 135%;
-  letter-spacing: 0.5%;
+  letter-spacing: 0.005em;
 }
 
 .para--2 {
@@ -409,6 +481,12 @@ img, video {
 
 /* Start of FAQ */
 
+#faq, #products {
+  width: 100%;
+  max-width: 1035px;
+  margin: 0 auto;
+}
+
 .faq__title {
   margin-bottom: 52px;
 }
@@ -475,6 +553,12 @@ img, video {
 
 /* Start of Contact */
 
+#contact {
+  width: 100%;
+  max-width: 821px;
+  margin: 0 auto;
+}
+
 .contact__title {
   margin-bottom: 52px;
 }
@@ -504,6 +588,7 @@ img, video {
   font-size: 15px;
   color: black;
   padding: 8px 0;
+  background: transparent;
 }
 
 .contact__input::placeholder {
@@ -518,3 +603,76 @@ img, video {
 }
 
 /* End of Contact */
+
+/* Start of Tablet Media Queries */
+
+@media screen and (min-width: 700px) {
+  .hero__icon { width: 126px; }
+
+  .hero__icon::before, .hero__icon::after {
+    width: 110%;
+}
+
+  .hero__icon::before { left: -61%; }
+
+  .hero__icon::after { right: -61%; }
+
+  .hero__title { font-size: 64px; }
+
+  .hero__subtitle { font-size: 50px; }
+
+  .hero__founding { width: 126px; }
+
+  .hero__founding::before, .hero__founding::after {
+    width: 126%;
+  }
+
+  .hero__founding::before { left: -53%; }
+
+  .hero__founding::after { right: -53%; }
+
+  .wrapper__content { width: 85%; }
+
+  .title--large {
+    font-size: 58px;
+    width: 500px;
+    margin: 0 auto 52px;
+  }
+
+  .title--small { font-size: 40px; }
+
+  .about__img { height: 352px; }
+
+  .about__text { padding: 13% 8%; }
+
+  .about__para { font-size: 16px; }
+
+  .products__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px;
+  }
+
+  .products__item {
+    width: 258px;
+    padding: 2.5%;
+    margin: 0;
+  }
+
+  .products__expand {
+    top: 10%;
+    right: 12%;
+  }
+
+  .products__img { height: 240px; }
+
+  .products__name { margin: 18px 0 3px; }
+
+  .faq__item { font-size: 15px; }
+
+  .contact__input { font-size: 16px; }
+  .contact__input::placeholder { font-size: 16px !important;}
+}
+
+/* End of Tablet Media Queries */
