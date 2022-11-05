@@ -1,11 +1,14 @@
 <template>
   <header id="header">
-    <div class="header__wrapper">
+    <div class="header__wrapper header--top">
       <h2 class="header__title">Dodds</h2>
-      <div class="hero__navBtn" @click="toggleNav()" aria-label="Navigation Button">
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
+      <div class="header__toggles">
+        <span @click="$emit('changeMode')">{{ this.visuals }}</span>
+        <div class="hero__navBtn" @click="toggleNav()" aria-label="Navigation Button">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
       </div>
     </div>
     <nav class="header__nav">
@@ -21,6 +24,8 @@
 
 <script>
 export default {
+  props: ['visuals'],
+
   data() {
     return {
       links: [
@@ -29,7 +34,7 @@ export default {
         { location: 'products' },
         { location: 'faq' },
         { location: 'contact' }
-      ]
+      ],
     }
   },
 
