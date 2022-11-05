@@ -15,7 +15,7 @@
       <span class="header__close" @click="toggleNav()">X</span>
       <ul class="header__list">
         <li class="header__item" v-for="(link, index) in links" :key="index">
-          <a :href="'#' + link.location" class="header__link">{{link.location}}</a>
+          <a :href="'#' + link.location" class="header__link" @click="toggleNav()">{{link.location}}</a>
         </li>
       </ul>
     </nav>
@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       links: [
-        { location: 'home' },
+        { location: 'hero' },
         { location: 'about' },
         { location: 'products' },
         { location: 'faq' },

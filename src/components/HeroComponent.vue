@@ -9,14 +9,18 @@
         <h2>EST 2022</h2>
       </div>
     </div>
-    <img src="/chevron-down.svg" class="hero__arrow" alt="Arrow pointing down indicating to scroll down to the about section">
+    <img src="/chevron-down.svg" @click="scrollToAbout()" class="hero__arrow" alt="Arrow pointing down indicating to scroll down to the about section">
     <video class="hero__video" src="/hero_video.mp4" muted loop></video>
   </section>
 </template>
 
 <script>
 export default {
-
+  methods: {
+    scrollToAbout() {
+      document.querySelector("#about").scrollIntoView({behavior: "smooth"})
+    }
+  }
 }
 </script>
 
