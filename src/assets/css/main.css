@@ -61,6 +61,10 @@ html {
   color: var(--darkmode-font);
 }
 
+#darkmode .contact__optiongroup, #darkmode .contact__optiongroup option {
+  background-color: var(--darkmode-cards-bg);
+}
+
 .no-scroll {
   overflow: hidden;
 }
@@ -605,6 +609,14 @@ img, video {
 .contact__input--message {
   font-size: 14px;
   resize: vertical;
+}
+
+.contact__optiongroup, .contact__optiongroup option {
+  font-family: var(--font-family-heading);
+}
+
+select optgroup option {
+  height: 20px;
 }
 
 /* End of Contact */
