@@ -6,7 +6,7 @@
       </div>
       <h1 class="hero__title">Dodds Family <span class="hero__subtitle">Smithing</span></h1>
       <div class="hero__founding">
-        <h2>EST 2022</h2>
+        <h2>{{heroSubtitle}}</h2>
       </div>
     </div>
     <img src="/chevron-down.svg" @click="scrollToAbout()" class="hero__arrow" alt="Arrow pointing down indicating to scroll down to the about section">
@@ -16,6 +16,14 @@
 
 <script>
 export default {
+  props: ['subtitle'],
+
+  data() {
+    return {
+      heroSubtitle: this.subtitle,
+    };
+  },
+
   methods: {
     scrollToAbout() {
       document.querySelector("#about").scrollIntoView({behavior: "smooth"})

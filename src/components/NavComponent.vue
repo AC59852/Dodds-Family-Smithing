@@ -1,7 +1,9 @@
 <template>
   <header id="header">
     <div class="header__wrapper header--top">
-      <h2 class="header__title">Dodds</h2>
+      <router-link to="/#hero" class="header__home">
+        <h2 class="header__title">Dodds</h2>
+      </router-link>
       <div class="header__toggles">
         <span @click="$emit('changeMode')">{{ this.visuals }}</span>
         <div class="hero__navBtn" @click="toggleNav()" aria-label="Navigation Button">
@@ -15,7 +17,7 @@
       <span class="header__close" @click="toggleNav()">X</span>
       <ul class="header__list">
         <li class="header__item" v-for="(link, index) in links" :key="index">
-          <a :href="'#' + link.location" class="header__link" @click="toggleNav()">{{link.location}}</a>
+          <router-link :to="'/#' + link.location" :name="link.location" class="header__link" @click="toggleNav()">{{link.location}}</router-link>
         </li>
       </ul>
     </nav>

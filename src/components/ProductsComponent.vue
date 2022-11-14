@@ -3,10 +3,10 @@
     <h2 class="products__title title--large title--underscore">Featured Items</h2>
     <div class="products__wrapper" v-if="mobile">
       <ul class="products__list">
-        <li class="products__item" v-for="(product, index) in products.slice(0,3)" :key="index">
-          <span class="products__expand">+</span>
-          <img :src="product.img" class="products__img" :alt="product.alt">
-          <h3 class="products__name">{{ product.name }}</h3>
+        <li class="products__item" v-for="(product, index) in filteredProducts" :key="index">
+          <router-link :to="`/products/${product.product}`">
+            <ProductCard :product="product" />
+          </router-link>
         </li>
       </ul>
       <button class="button button--products" v-if="allProducts == false" @click="revealProducts()">View More</button>
@@ -15,9 +15,9 @@
     <div class="products__wrapper" v-else>
       <ul class="products__list">
         <li class="products__item" v-for="(product, index) in products" :key="index">
-          <span class="products__expand">+</span>
-          <img :src="product.img" class="products__img" :alt="product.alt">
-          <h3 class="products__name">{{ product.name }}</h3>
+          <router-link :to="`/products/${product.product}`">
+            <ProductCard :product="product" />
+          </router-link>
         </li>
       </ul>
     </div>
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import ProductCard from './ProductCardComponent.vue';
 export default {
   props: ['mobile'],
 
@@ -33,72 +34,71 @@ export default {
       products: [
         {
           name: 'Swords',
+          product: 'swords',
           img: '/swords.jpg',
           alt: 'Image of a sword created by Dodds Family Smithing',
         },
         {
           name: 'Axes',
+          product: 'axes',
           img: '/axes.jpg',
           alt: 'Image of a steel axe created by Dodds Family Smithing',
         },
         {
           name: 'Knives (Folding)',
+          product: 'knives-folding',
           img: '/knives_folding.jpg',
           alt: 'Image of a lead folding knife with wooden base created by Dodds Family Smithing',
         },
         {
           name: 'Armour',
+          product: 'armour',
           img: '/armour.jpg',
           alt: 'Image of an iron helmet, fur coat, and leather wraps created by Dodds Family Smithing',
         },
         {
           name: 'Knives (Straight)',
+          product: 'knives-straight',
           img: '/knives_straight.jpg',
           alt: 'Image of a steel straight knife with wooden base created by Dodds Family Smithing',
         },
-        {
-          name: 'LARPing',
-          img: '/larping.jpg',
-          alt: 'Image of a man wearing knights armour and a straight sword created by Dodds Family Smithing',
-        },
       ],
       allProducts: false,
+      productLength: 3,
     }
   },
 
+  // mounted() {
+  //   // remove the current product from the list of other products
+  //   this.products = this.products.filter((product) => product.product !== this.$route.params.product);
+  // },
+
   methods: {
     revealProducts() {
-      this.allProducts = true
+      this.allProducts = true;
 
-      let products = document.querySelector(".products__list")
-
-      // push the remaining 3 products into the DOM
-      for (let i = 3; i < this.products.length; i++) {
-        let product = document.createElement("li")
-        product.classList.add("products__item")
-        product.innerHTML = `
-          <span class="products__expand">+</span>
-          <img src="${this.products[i].img}" class="products__img" alt="${this.products[i].alt}">
-          <h3 class="products__name">${this.products[i].name}</h3>
-        `
-        products.appendChild(product)
-      }
+      this.productLength = this.products.length;
     },
 
     hideProducts() {
-      this.allProducts = false
+      this.allProducts = false;
+      this.productLength = 3;
 
-      let products = document.querySelector(".products__list"),
-          button = document.querySelector(".button--products")
-
-      // remove the remaining 3 products from the DOM
-      for (let i = 3; i < this.products.length; i++) {
-        products.removeChild(products.lastChild)
-      }
-
-      button.scrollIntoView({block: "center"})
+      // scroll products into view
+      const products = document.querySelector('#products');
+      products.scrollIntoView({ behavior: 'instant', block: 'center' });
     },
-  }
+  },
+
+  computed: {
+    filteredProducts() {
+      return this.products.slice(0,this.productLength)
+    }
+  },
+
+  components: {
+    ProductCard,
+  },
 }
 </script>
 
