@@ -1,7 +1,9 @@
 <template>
   <header id="header">
     <div class="header__wrapper header--top">
-      <h2 class="header__title">Dodds</h2>
+      <router-link to="/#hero" class="header__home">
+        <h2 class="header__title">Dodds</h2>
+      </router-link>
       <div class="header__toggles">
         <span @click="$emit('changeMode')">{{ this.visuals }}</span>
         <div class="hero__navBtn" @click="toggleNav()" aria-label="Navigation Button">

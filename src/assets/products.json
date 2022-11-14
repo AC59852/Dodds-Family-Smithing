@@ -1,0 +1,56 @@
+{
+  "products": {
+    "swords": [
+      {
+        "name": "Rapier",
+        "img": "/rapier.png",
+        "info": [
+          "2 Inch W x 20 Inch H",
+          "Made with Steel and Cloth",
+          "Temered in Heat of 180c",
+          "Custom Crossguard for Extra"
+        ]
+      },
+      {
+        "name": "Broadsword",
+        "img": "/broadsword.png",
+        "info": [
+          "2 Inch W x 20 Inch H",
+          "Made with Steel and Cloth",
+          "Temered in Heat of 180c",
+          "Custom Crossguard for Extra"
+        ]
+      },
+      {
+        "name": "Claymore",
+        "img": "/claymore.png",
+        "info": [
+          "2 Inch W x 20 Inch H",
+          "Made with Steel and Cloth",
+          "Temered in Heat of 180c",
+          "Custom Crossguard for Extra"
+        ]
+      },
+      {
+        "name": "Falchion",
+        "img": "/falchion.png",
+        "info": [
+          "2 Inch W x 20 Inch H",
+          "Made with Steel and Cloth",
+          "Temered in Heat of 180c",
+          "Custom Crossguard for Extra"
+        ]
+      },
+      {
+        "name": "Katana",
+        "img": "/katana.png",
+        "info": [
+          "2 Inch W x 20 Inch H",
+          "Made with Steel and Cloth",
+          "Temered in Heat of 180c",
+          "Custom Crossguard for Extra"
+        ]
+      }
+    ]
+  }
+}

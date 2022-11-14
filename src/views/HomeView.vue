@@ -1,6 +1,6 @@
 <template>
   <section id="wrapper">
-    <HeroComponent />
+    <HeroComponent subtitle='EST 2022'/>
     <div class="wrapper__content">
       <AboutComponent :mobile="this.mobile"/>
       <ProductsComponent :mobile="this.mobile"/>
